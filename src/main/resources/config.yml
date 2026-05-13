@@ -1,0 +1,20 @@
+settings:
+  warmup: 5
+  cooldown: 10
+  request-expire: 60
+  cancel-on-move: true
+  cancel-on-damage: true
+  safe-teleport-enabled: true
+  safe-search-radius: 5
+  safe-search-vertical: 3
+gui:
+  enabled: true
+messages:
+  request-sent: "<green>Sent a teleport request to <player>.</green>"
+  request-received: "<gold><player> sent you a teleport request. [<click>ACCEPT</click>] [<click>DENY</click>]</gold>"
+  request-expired: "<red>Your teleport request expired.</red>"
+  teleport-start: "<green>Teleporting in <time>s...</green>"
+  teleport-cancelled: "<red>Teleport cancelled.</red>"
+  no-safe-spot: "<red>No safe location found. Teleport cancelled.</red>"
+  toggle-disabled: "<yellow>You have disabled incoming TPA requests.</yellow>"
+  toggle-enabled: "<green>You have enabled incoming TPA requests.</green>"

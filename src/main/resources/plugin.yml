@@ -1,0 +1,43 @@
+name: TPA DonutSMP
+main: dev.donutsmp.tpa.TPADonutSMPPlugin
+version: 1.0.0
+api-version: 1.21
+author: dominik-kaspar-dev
+softdepend: [PlaceholderAPI]
+commands:
+  tpa:
+    description: Send a teleport request to a player
+    usage: /tpa <player>
+    permission: tpa.use
+  tpahere:
+    description: Request that a player teleport to you
+    usage: /tpahere <player>
+    permission: tpa.use
+  tpaccept:
+    description: Accept a teleport request
+    permission: tpa.use
+  tpdeny:
+    description: Deny a teleport request
+    permission: tpa.use
+  tpacancel:
+    description: Cancel an outgoing teleport request
+    permission: tpa.use
+  tpatoggle:
+    description: Toggle incoming teleport requests
+    permission: tpa.use
+  tpareload:
+    description: Reload the TPA plugin configuration
+    permission: tpa.admin
+permissions:
+  tpa.use:
+    description: Use TPA commands
+    default: true
+  tpa.bypass.warmup:
+    description: Bypass TPA warmup
+    default: op
+  tpa.bypass.cooldown:
+    description: Bypass TPA cooldown
+    default: op
+  tpa.admin:
+    description: Admin TPA control
+    default: op
