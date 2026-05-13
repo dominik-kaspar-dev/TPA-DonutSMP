@@ -1,4 +1,4 @@
-name: TPA DonutSMP
+name: TPADonutSMP
 main: dev.donutsmp.tpa.TPADonutSMPPlugin
 version: 1.0.0
 api-version: 1.21
