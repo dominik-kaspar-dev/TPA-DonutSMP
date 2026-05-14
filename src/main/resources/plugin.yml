@@ -1,6 +1,6 @@
 name: TPADonutSMP
 main: dev.donutsmp.tpa.TPADonutSMPPlugin
-version: 1.0.0
+version: 1.1.0
 api-version: 1.21
 author: dominik-kaspar-dev
 softdepend: [PlaceholderAPI]
