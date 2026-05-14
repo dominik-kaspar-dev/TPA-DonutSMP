@@ -2,6 +2,9 @@ package dev.donutsmp.tpa.commands;
 
 import dev.donutsmp.tpa.TPADonutSMPPlugin;
 import dev.donutsmp.tpa.request.Request;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -53,13 +56,12 @@ public class TpahereCommand implements CommandExecutor {
         sentRaw = sentRaw.replace("<player>", target.getName()).replace("<time>", String.valueOf(plugin.getConf().getRequestExpire()));
         p.sendMessage(plugin.getMessages().parse(sentRaw));
 
-        if (plugin.getConf().guiEnabled()) {
-            dev.donutsmp.tpa.gui.RequestMenu.open(r, plugin);
-        } else {
-            String recvRaw = plugin.getConfig().getString("messages.request-received", "<player> sent you a teleport request.");
-            recvRaw = recvRaw.replace("<player>", p.getName()).replace("<time>", String.valueOf(plugin.getConf().getRequestExpire()));
-            target.sendMessage(plugin.getMessages().parse(recvRaw));
-        }
+        Component accept = Component.text("[ACCEPT]", NamedTextColor.GREEN).clickEvent(ClickEvent.runCommand("/tpaccept"));
+        Component deny = Component.text("[DENY]", NamedTextColor.RED).clickEvent(ClickEvent.runCommand("/tpdeny"));
+        String recvRaw = plugin.getConfig().getString("messages.request-received", "<player> sent you a teleport request.");
+        recvRaw = recvRaw.replace("<player>", p.getName()).replace("<time>", String.valueOf(plugin.getConf().getRequestExpire()));
+        target.sendMessage(plugin.getMessages().parse(recvRaw));
+        target.sendMessage(accept.append(Component.text(" ")).append(deny));
 
         return true;
     }

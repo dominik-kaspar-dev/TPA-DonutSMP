@@ -19,6 +19,11 @@ public class TpaAcceptCommand implements CommandExecutor {
         Request r = plugin.getRequests().getByTarget(p.getUniqueId());
         if (r == null) { p.sendMessage("No incoming requests."); return true; }
 
+        if (plugin.getConf().guiEnabled()) {
+            dev.donutsmp.tpa.gui.RequestMenu.open(r, plugin);
+            return true;
+        }
+
         // remove request and start teleport
         plugin.getRequests().removeByTarget(p.getUniqueId());
         plugin.getTeleports().startTeleport(r);

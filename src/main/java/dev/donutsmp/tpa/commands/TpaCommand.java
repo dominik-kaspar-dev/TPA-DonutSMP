@@ -38,14 +38,10 @@ public class TpaCommand implements CommandExecutor {
         sentRaw = sentRaw.replace("<player>", target.getName());
         p.sendMessage(plugin.getMessages().parse(sentRaw));
 
-        if (plugin.getConf().guiEnabled()) {
-            dev.donutsmp.tpa.gui.RequestMenu.open(r, plugin);
-        } else {
-            Component accept = Component.text("[ACCEPT]", NamedTextColor.GREEN).clickEvent(ClickEvent.runCommand("/tpaccept"));
-            Component deny = Component.text("[DENY]", NamedTextColor.RED).clickEvent(ClickEvent.runCommand("/tpdeny"));
-            target.sendMessage(plugin.getMessages().parse("<gold>" + p.getName() + " sent you a teleport request.</gold>"));
-            target.sendMessage(accept.append(Component.text(" ")).append(deny));
-        }
+        Component accept = Component.text("[ACCEPT]", NamedTextColor.GREEN).clickEvent(ClickEvent.runCommand("/tpaccept"));
+        Component deny = Component.text("[DENY]", NamedTextColor.RED).clickEvent(ClickEvent.runCommand("/tpdeny"));
+        target.sendMessage(plugin.getMessages().parse("<gold>" + p.getName() + " sent you a teleport request.</gold>"));
+        target.sendMessage(accept.append(Component.text(" ")).append(deny));
 
         return true;
     }
